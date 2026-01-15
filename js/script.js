@@ -2,6 +2,30 @@
 // NAVIGATION FUNCTIONALITY
 // ============================================
 
+// Disable DevTools shortcuts and right-click
+document.addEventListener('keydown', (e) => {
+    // Block F12
+    if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+    }
+    // Block Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j')) {
+        e.preventDefault();
+        return false;
+    }
+    if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Block right-click context menu
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    return false;
+});
+
 // Get DOM elements
 const navbar = document.querySelector('.navbar');
 const menuToggle = document.querySelector('.menu-toggle');
